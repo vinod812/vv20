@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div ng-controller="UserController">
+        <h1>Users</h1>
+        <ul>
+            <li ng-repeat="user in users">{{ user.name }} ({{ user.email }})</li>
+        </ul>
+
+        <h2>Add User</h2>
+        <form ng-submit="addUser()">
+            Name: <input type="text" ng-model="newUser.name" required />
+            Email: <input type="email" ng-model="newUser.email" required />
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</body>
+</html>
