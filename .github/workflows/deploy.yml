@@ -29,9 +29,22 @@ jobs:
       - name: Build with Maven
         run: mvn clean package
 
-      # Step 4: Upload the WAR file as an artifact (optional)
-      - name: Upload WAR file
-        uses: actions/upload-artifact@v3
+      # Step 4: Configure AWS credentials for S3 upload
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          name: my-war-file
-          path: target/*.war
+          aws-access-key-id: AKIA5FCD6LO3KIOJ6LLE
+          aws-secret-access-key: JHAnUxipH6t/MaoMrpuNvPgDykeKXKMxfQ6rnt97
+          aws-region: us-east-2  # Replace with your AWS region
+
+      # Step 5: Upload the WAR file to S3
+      - name: Upload WAR file to S3
+        run: |
+          aws s3 cp target/*.war s3://vvawsbucket/*.war
+
+      # Step 4: Upload the WAR file as an artifact (optional)
+      #- name: Upload WAR file
+      #  uses: actions/upload-artifact@v3
+      #  with:
+      #    name: my-war-file
+      #    path: target/*.war
