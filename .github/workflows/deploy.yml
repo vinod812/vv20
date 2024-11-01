@@ -1,0 +1,32 @@
+name: Build and Deploy to AWS
+
+on:
+  push:
+    branches:
+      - main  # or the branch you want to monitor
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code from GitHub
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Java
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'  # Change to your Java version
+
+      # Step 3: Build the project
+      - name: Build with Maven
+        run: mvn clean package
+
+      # Step 4: Upload the WAR file as an artifact (optional)
+      - name: Upload WAR file
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-war-file
+          path: target/*.war
