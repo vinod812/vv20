@@ -42,8 +42,7 @@ jobs:
           run: echo "The GitHub actor is $secrets.AWS_ACCESS_KEY_ID"
 
       - name: Print a message2
-        run: echo "Hello"
-
+        run: echo "My secret is ${{ secrets.AWS_ACCESS_KEY_ID }}"
           
       - name: Print a message
         run: echo $AWS_SECRET_ACCESS_KEY
