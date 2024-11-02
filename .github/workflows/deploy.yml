@@ -34,8 +34,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws-access-key-id: AKIA5FCD6LO3OUBL7QLK
-          aws-secret-access-key: ksHc0XBS2Wv1SZs+JRgz//m5vCdA2Yu4Mbyu3WoG
+          aws-access-key-id: 
+          aws-secret-access-key: 
           aws-region: us-east-2  # Replace with your AWS region
 
       # Step 5: Upload the WAR file to S3
