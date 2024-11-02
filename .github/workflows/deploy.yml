@@ -6,6 +6,10 @@ on:
       - main  # or the branch you want to monitor
   workflow_dispatch: # Allow manual trigger
 
+permissions:
+      id-token: write   # This is required for requesting the JWT
+      contents: read  
+
 jobs:
   build:
     runs-on: ubuntu-latest
